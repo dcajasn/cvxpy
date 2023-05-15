@@ -26,9 +26,11 @@ from cvxpy.utilities import scopes
 class PowCone3D(Constraint):
     """
     An object representing a collection of 3D power cone constraints
+    
+    .. math::
 
-        x[i]**alpha[i] * y[i]**(1-alpha[i]) >= |z[i]|  for all i
-        x >= 0, y >= 0
+        \mathcal{P}^{\alpha_{i}, 1-\alpha_{i}}_{3} = \{ (x_i, y_i, z_i) \mid x_{i}^{\alpha_{i}} y_{i}^{1-\alpha_{i}} \geq |z_{i}| \, \forall \, i=1,\ldots,n \, \mid
+        x \geq 0, y \geq 0 \}
 
     If the parameter alpha is a scalar, it will be promoted to
     a vector matching the (common) sizes of x, y, z. The numeric
